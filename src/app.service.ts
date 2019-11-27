@@ -49,6 +49,8 @@ export class AppService {
   }
 
   getTeams(callFn: (response: ResponseCnt<TeamDetail[]>) => void): void {
+    Logger.log('Looking up teams...');
+
     fs.readdir(path.join(__dirname, '..', 'saves'),
       {
         withFileTypes: true,
@@ -87,6 +89,7 @@ export class AppService {
           });
 
         if (!!!teams) {
+          Logger.log('No teams found :(');
           callFn({
             success: true,
             statusCode: 200,
@@ -96,6 +99,7 @@ export class AppService {
           return;
         }
 
+        Logger.log('Successfully looked up teams...');
         callFn({
           body: teams,
           success: true,

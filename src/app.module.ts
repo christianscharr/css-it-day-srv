@@ -8,7 +8,7 @@ import * as path from 'path';
   imports: [
     Logger,
     ServeStaticModule.forRoot({
-      rootPath: path.join(__dirname, '..', '..', 'ui', 'public'),
+      rootPath: path.join(__dirname, '..', '..', 'css-it-day-ui', 'public'),
     }),
   ],
   controllers: [AppController],
