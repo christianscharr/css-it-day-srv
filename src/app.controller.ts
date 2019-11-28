@@ -10,7 +10,7 @@ export class AppController {
   @Get('teams')
   getTeams(@Req() request: Request, @Res() res: Response) {
     this.appService.getTeams(ret => {
-      res.status(ret.statusCode).json(ret).send();
+      res.status(ret.statusCode).json(ret);
     });
   }
 
